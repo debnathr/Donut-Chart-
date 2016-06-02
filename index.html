@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To create a animated donut chart</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+
+<body>
+    <div class="margin-top-30" ng-if="vm.result">
+        <div class="row" ng-repeat="r in result track by $index">
+            <div class="donut col-sm-3 col-xs-6" ng-repeat="test in  r track by $index">
+                <donut-circle ng-if="test.school" stroke="#3498db" stroke-dasharray="{{test.securedPct | number : 1}}"></donut-circle>
+                <donut-circle ng-if="exam.school" stroke="#2ecc71" stroke-dasharray="{{exam.securedPct | number : 1}}"></donut-circle>
+                <ul>
+                    <li ng-if="test.school">
+                        {{test.subject.name}}
+                    </li>
+                    <li ng-if="exam.school">
+                        {{exam.subject.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+/*donut chart*/
+
+.donut {
+    position: relative;
+    float: left;
+}
+
+.svg {
+    color: #e1e1e1;
+}
+
+.donut h4 {
+    text-align: center;
+    position: absolute;
+    padding-right: 19px;
+    line-height: 116px;
+    width: 100%;
+    color: #333;
+}
+
+.donut span {
+    text-align: center;
+    position: absolute;
+    padding-left: 20px;
+    word-wrap: break-word;
+    padding-left: 3px;
+}
+
+.donut ul {
+    list-style-type: none;
+}
+
+svg {
+    transform: rotate(-90deg);
+}
+
+.circle_animation {
+    stroke-dasharray: 339.29200658769764/2;
+    stroke-dashoffset: 339.29200658769764/2;
+}
+
+.donut .circle_animation {
+    -webkit-animation: acad 0.1s ease-out reverse forwards;
+    animation: acad 0.1s ease-out reverse forwards;
+}
+
+.text {
+    stroke: none;
+    fill: #333;
+}
+
+@-webkit-keyframes donut {
+    to {
+        stroke-dashoffset: 80;
+        /* 50% would be 220 (half the initial value specified above) */
+    }
+}
+
+@keyframes donut {
+    from {
+        stroke-dashoffset: 0;
+    }
+    to {
+        stroke-dashoffset: 80;
+    }
+}

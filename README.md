@@ -14,27 +14,7 @@ It is good to design it in a directive so that it can be used anywhere throughou
 
 I used the directive twice to get two diiferent color charts. There are two strokes based on the ng-if condition to display two different color dials basde on the type of data.
 
-<body>
-    <div class="margin-top-30" ng-if="vm.result">
-        <div class="row" ng-repeat="r in result track by $index">
-            <div class="donut col-sm-3 col-xs-6" ng-repeat="test in  r track by $index">  /* to repeat the circle */
-                <donut-circle ng-if="test.school" stroke="#3498db" stroke-dasharray="{{test.securedPct | number : 1}}"></donut-circle>  /* This is the directive which you can add anywhere in your html */
-                <donut-circle ng-if="exam.school" stroke="#2ecc71" stroke-dasharray="{{exam.securedPct | number : 1}}"></donut-circle>
-                <ul>  // This is used to display the name below the dial.
-                    <li ng-if="test.school">
-                        {{test.subject.name}}
-                    </li>
-                    <li ng-if="exam.school">
-                        {{exam.subject.name}}
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</body>
-
-
-Coming to the directive. The following code you can add in your controller or directive to use the donut circle. 
+Coming to the directive if you check main.controller.js yo will see I created a directive to display the donut chart. 
 
 I am calculating the width, height and radius of the circle based on the screen size to make it responsive. cx and cy is the default coordinates of svg element.
 It is also calculated depending on the height and width.
@@ -44,12 +24,6 @@ The circumference of innercircle is always the full circumference and hence is c
 The circumference of colored or our data circle is calculated as strokeDasharray. The value of strokeDasharray is set from the html. 
 
 
-function donutCircle() {
-    return {
-        template: '<svg><g writing-mode="tb"><circle class="innercircle" stroke-width="10" stroke="#ecf0f1" fill="none" stroke-dasharray="{{strokeGreyDasharray}}"/></circle><circle class="circle_animation" stroke-width="10" fill="none" stroke="{{stroke}}" stroke-dasharray="{{strokeDasharray}}"/><text x="50%" y="50%" class="text" font-family="sans-serif" font-size="25px" text-anchor="middle" alignment-baseline="middle">{{perct | number : 0}}%</text></circle></g></svg>',
-        restrict: 'E',
-        replace: true,
-        scope: true,
         link: function postLink($scope, element, attrs) {
             var strokeDasharray = attrs.strokeDasharray; //our percetage input value
             $scope.perct = strokeDasharray;

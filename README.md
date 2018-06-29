@@ -4,7 +4,7 @@ Donut chart is one of the most popular and widely used chart for displaying data
 It looks more cool when shown with little bit of animation. 
 But the problem comes when we have to design the circle without using any external library. 
 
-I was asked to work on a dial chart with animation without using any external library during my project work at Vidyartha. 
+I was asked to work on a dial chart with animation without using any external library during my project work at Byjus (Vidyartha). 
 Vidyartha is an online career guidance program for K8 to K12. I am working for the development of Version 3 website which is about to release.
 
 In this repository I updated the HTML, CSS and JS for the development of donut chart from scratch. I used angularJS directive to design the donut chart.
